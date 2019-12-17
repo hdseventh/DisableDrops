@@ -17,7 +17,7 @@ namespace DisableDrops
 
 		public override string Name
 		{
-			get { return "Disable Drops"; }
+			get { return "Return Drops"; }
 		}
 
 		public override string Author
@@ -73,7 +73,7 @@ namespace DisableDrops
 
 				TSPlayer player = TShock.Players[args.Msg.whoAmI];
 
-				if (!player.HasPermission("disabledrops.bypass"))
+				if (!player.HasPermission("disabledrops.bypass")) //disabledrops.bypass l6d.user.itemdrop
 				{
 					using (var data = new MemoryStream(args.Msg.readBuffer, args.Index, args.Length))
 					{
@@ -87,13 +87,15 @@ namespace DisableDrops
 						bool nodelay = data.ReadBoolean();
 						Int16 netid = data.ReadInt16();
 
-						Item item = new Item();
-						item.SetDefaults(netid);
+						//Item item = new Item();
+						//item.SetDefaults(netid);
+                        player.GiveItem(netid, player.Name, 1, 1, stacks, prefix);
 
-						if (id != 400)
+                        if (id != 400)
 							return;
 
 						args.Handled = true;
+                        //Console.WriteLine($"int16 id:{id}, float posx:{posx}, float posy:{posy}, float velx:{velx}, float vely:{vely}, int16 stacks:{stacks}, int preix:{prefix}, bool nodelay:{nodelay}, int16 netid:{netid}");
 					}
 					player.SendErrorMessage("[Disable Drops] You are not allowed to drop items.");
 				}
