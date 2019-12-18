@@ -89,13 +89,13 @@ namespace DisableDrops
 
 						//Item item = new Item();
 						//item.SetDefaults(netid);
-                        player.GiveItem(netid, player.Name, 1, 1, stacks, prefix);
+                        			player.GiveItem(netid, player.Name, 1, 1, stacks, prefix);
 
-                        if (id != 400)
+                        			if (id != 400)
 							return;
 
 						args.Handled = true;
-                        //Console.WriteLine($"int16 id:{id}, float posx:{posx}, float posy:{posy}, float velx:{velx}, float vely:{vely}, int16 stacks:{stacks}, int preix:{prefix}, bool nodelay:{nodelay}, int16 netid:{netid}");
+                        			//Console.WriteLine($"int16 id:{id}, float posx:{posx}, float posy:{posy}, float velx:{velx}, float vely:{vely}, int16 stacks:{stacks}, int preix:{prefix}, bool nodelay:{nodelay}, int16 netid:{netid}");
 					}
 					player.SendErrorMessage("[Disable Drops] You are not allowed to drop items.");
 				}
