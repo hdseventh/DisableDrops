@@ -89,7 +89,7 @@ namespace DisableDrops
 
 						//Item item = new Item();
 						//item.SetDefaults(netid);
-                        			player.GiveItem(netid, player.Name, 1, 1, stacks, prefix);
+                        			player.GiveItem(netid, stacks, prefix);
 
                         			if (id != 400)
 							return;
